@@ -15,7 +15,7 @@ export default function RootLayout({
     <html lang="en" className="h-full antialiased">
       <body className="min-h-full flex flex-col">
         <div className="flex flex-col flex-1 items-center justify-center">
-          <main className="flex flex-1 w-full flex-col items-center">
+          <main className="flex flex-1 w-full flex-col justify-center items-center">
             {children}
           </main>
         </div>
