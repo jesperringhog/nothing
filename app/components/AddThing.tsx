@@ -2,9 +2,8 @@
 
 import { useContext, useReducer, useState } from "react";
 import { ThingContext } from "../contexts/ThingContext";
-import { ThingActionType } from "../reducers/thingReducer";
 import { BtnComponent } from "./BtnComponent";
-import { Thing } from "../models/Thing";
+import { ThingActionType } from "../models/ThingActionType";
 
 export const AddThing = () => {
   const [something, setSomething] = useState("");
@@ -16,22 +15,22 @@ export const AddThing = () => {
       onSubmit={(e) => {
         e.preventDefault();
         dispatch({
-          type: ThingActionType.ADDED,
+          type: ThingActionType.CREATED,
           payload: something,
         });
         setSomething("");
       }}
     >
-      <label htmlFor="thingInput">Add</label>
+      <label htmlFor="thingInput"></label>
       <input
-        className="p-5 border rounded-xl"
+        className="w-30 h-30 text-white text-center placeholder:text-center bg-black"
         id="thingInput"
         type="text"
-        placeholder="something"
         value={something}
         onChange={(e) => setSomething(e.target.value)}
+        required
       />
-      <BtnComponent>Create</BtnComponent>
+      <BtnComponent thingActionType={ThingActionType.CREATED}>Create</BtnComponent>
     </form>
   );
 };

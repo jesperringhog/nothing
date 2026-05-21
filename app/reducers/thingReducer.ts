@@ -1,10 +1,5 @@
 import { Thing } from "../models/Thing";
-
-export enum ThingActionType {
-  ADDED,
-  REMOVED,
-  TOGGLED,
-}
+import { ThingActionType } from "../models/ThingActionType";
 
 export type ThingAction = {
   type: ThingActionType;
@@ -13,16 +8,16 @@ export type ThingAction = {
 
 export const thingReducer = (things: Thing[], action: ThingAction) => {
   switch (action.type) {
-    case ThingActionType.ADDED:
+    case ThingActionType.CREATED:
       return [
         ...things,
         { id: Date.now(), word: action.payload, nothing: true },
       ];
 
-    case ThingActionType.REMOVED:
+    case ThingActionType.ELIMINATED:
       return things.filter((t) => t.id !== +action.payload);
 
-    case ThingActionType.TOGGLED:
+    case ThingActionType.ALTERNATED:
       return things.map((t) =>
         t.id === +action.payload ? { ...t, nothing: !t.nothing } : t,
       );

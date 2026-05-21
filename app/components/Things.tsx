@@ -3,7 +3,7 @@
 import { useContext } from "react";
 import { ThingContext } from "../contexts/ThingContext";
 import { BtnComponent } from "./BtnComponent";
-import { ThingActionType } from "../reducers/thingReducer";
+import { ThingActionType } from "../models/ThingActionType";
 
 export const Things = () => {
   const { things, dispatch } = useContext(ThingContext);
@@ -13,25 +13,11 @@ export const Things = () => {
       {things.map((t) => (
         <li key={t.id} className="flex gap-10 items-center">
           <span className={t.nothing ? "line-through" : ""}>{t.word}</span>
-          <BtnComponent
-            onClick={() => {
-              dispatch({
-                type: ThingActionType.REMOVED,
-                payload: t.id.toString(),
-              });
-            }}
-          >
-            Delete
+          <BtnComponent thing={t} thingActionType={ThingActionType.ELIMINATED}>
+            Eliminate
           </BtnComponent>
-          <BtnComponent
-            onClick={() => {
-              dispatch({
-                type: ThingActionType.TOGGLED,
-                payload: t.id.toString(),
-              });
-            }}
-          >
-            Toggle
+          <BtnComponent thing={t} thingActionType={ThingActionType.ALTERNATED}>
+            Alternate
           </BtnComponent>
         </li>
       ))}
