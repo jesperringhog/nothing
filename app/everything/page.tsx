@@ -4,6 +4,7 @@ import { useReducer } from "react";
 import { AddThing } from "../components/AddThing";
 import { thingReducer } from "../reducers/thingReducer";
 import { ThingContext } from "../contexts/ThingContext";
+import { Things } from "../components/Things";
 
 export default function EveryThing() {
   const [things, dispatch] = useReducer(thingReducer, []);
@@ -11,7 +12,7 @@ export default function EveryThing() {
   return (
     <ThingContext.Provider value={{ things, dispatch }}>
       <AddThing />
-      {/* <Things /> */}
+      <Things />
     </ThingContext.Provider>
   );
 }
