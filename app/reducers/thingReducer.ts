@@ -11,7 +11,7 @@ export const thingReducer = (things: Thing[], action: ThingAction) => {
     case ThingActionType.CREATED:
       return [
         ...things,
-        { id: Date.now(), word: action.payload, nothing: true },
+        { id: Date.now(), word: action.payload.toUpperCase(), nothing: true },
       ];
 
     case ThingActionType.ELIMINATED:

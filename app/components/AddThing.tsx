@@ -11,7 +11,8 @@ export const AddThing = () => {
 
   return (
     <form
-      className="flex gap-10 items-center"
+      className="flex gap-5 items-center font-sansafe"
+      autoComplete="off"
       onSubmit={(e) => {
         e.preventDefault();
         dispatch({
@@ -23,14 +24,17 @@ export const AddThing = () => {
     >
       <label htmlFor="thingInput"></label>
       <input
-        className="w-30 h-30 text-white text-center placeholder:text-center bg-black"
+        className="size-75 text-4xl text-background text-center bg-foreground
+        appearence-none outline-none shadow-none border-none"
         id="thingInput"
         type="text"
-        value={something}
+        value={something.toUpperCase()}
         onChange={(e) => setSomething(e.target.value)}
         required
       />
-      <BtnComponent thingActionType={ThingActionType.CREATED}>Create</BtnComponent>
+      <BtnComponent thingActionType={ThingActionType.CREATED}>
+        CREATE
+      </BtnComponent>
     </form>
   );
 };

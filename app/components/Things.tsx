@@ -11,14 +11,24 @@ export const Things = () => {
   return (
     <ul>
       {things.map((t) => (
-        <li key={t.id} className="flex gap-10 items-center">
-          <span className={t.nothing ? "line-through" : ""}>{t.word}</span>
-          <BtnComponent thing={t} thingActionType={ThingActionType.ELIMINATED}>
-            Eliminate
-          </BtnComponent>
-          <BtnComponent thing={t} thingActionType={ThingActionType.ALTERNATED}>
-            Alternate
-          </BtnComponent>
+        <li key={t.id}>
+          <div className="flex gap-5">
+            <BtnComponent
+              thing={t}
+              thingActionType={ThingActionType.ELIMINATED}
+            >
+              ELIMINATE
+            </BtnComponent>
+            <BtnComponent
+              thing={t}
+              thingActionType={ThingActionType.ALTERNATED}
+            >
+              ALTERNATE
+            </BtnComponent>
+          </div>
+          <p className={t.nothing ? "font-sanspace" : "font-sansafe"}>
+            {t.word}
+          </p>
         </li>
       ))}
     </ul>

@@ -15,7 +15,7 @@ export const BtnComponent = ({
   children,
 }: BtnComponentProps) => {
   const { dispatch } = useContext(ThingContext);
-  let className = "w-30 h-30 bg-black hover:bg-white cursor-pointer";
+  let className = "size-75 text-4xl bg-foreground hover:bg-background cursor-pointer";
 
   switch (thingActionType) {
     case ThingActionType.CREATED:

@@ -14,7 +14,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full antialiased">
       <body className="min-h-full flex flex-col">
-          <main className="w-full p-10 flex flex-1 flex-col items-center gap-10">
+          <main className="w-full pt-5 flex gap-5">
             {children}
           </main>
       </body>
