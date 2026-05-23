@@ -6,7 +6,7 @@ import { ThingActionType } from "../models/ThingActionType";
 type BtnComponentProps = {
   thing?: Thing;
   thingActionType: ThingActionType;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 };
 
 export const BtnComponent = ({
@@ -15,19 +15,19 @@ export const BtnComponent = ({
   children,
 }: BtnComponentProps) => {
   const { dispatch } = useContext(ThingContext);
-  let className = "size-75 text-4xl bg-foreground hover:bg-background cursor-pointer";
+  let className = "size-37.5 text-4xl bg-foreground hover:bg-background";
 
   switch (thingActionType) {
     case ThingActionType.CREATED:
-      className += " rounded-full";
+      className += " rounded-full cursor-cell";
       break;
 
     case ThingActionType.ALTERNATED:
-      className += " rounded-tr-[50%] rounded-bl-[50%]";
+      className += " rounded-tl-[50%] rounded-br-[50%] cursor-help";
       break;
 
     case ThingActionType.ELIMINATED:
-      className += " [clip-path:polygon(50%_0%,0%_100%,100%_100%)] hover:[clip-path:none]";
+      className += " rounded-full cursor-grabbing";
   }
 
   return (

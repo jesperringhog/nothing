@@ -1,5 +1,5 @@
 import Link from "next/link";
 
 export default function Home() {
-  return <Link href={"/everything"}>Things</Link>
+  return <Link href={"/everything"}>THINGS</Link>
 }
