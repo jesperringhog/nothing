@@ -2,7 +2,7 @@
 
 import { useContext } from "react";
 import { ThingContext } from "../contexts/ThingContext";
-import { BtnComponent } from "./BtnComponent";
+import { ActionButton } from "./ActionButton";
 import { ThingActionType } from "../models/ThingActionType";
 
 export const Things = () => {
@@ -11,21 +11,24 @@ export const Things = () => {
   return (
     <ul>
       {things.map((t) => (
-        <li key={t.id} className="flex justify-start gap-41.5 mb-12.5">
-          <div className="flex flex-col gap-2">
-            <BtnComponent
+        <li
+          key={t.id}
+          className="flex flex-col xl:flex-row gap-2 mb-8 xl:mb-2"
+        >
+          <div className="flex xl:flex-col gap-1.5 xl:gap-2">
+            <ActionButton
               thing={t}
               thingActionType={ThingActionType.ALTERNATED}
-            >
-            </BtnComponent>
-            <BtnComponent
+            ></ActionButton>
+            <ActionButton
               thing={t}
               thingActionType={ThingActionType.ELIMINATED}
-            >
-            </BtnComponent>
+            ></ActionButton>
           </div>
           <p
-            className={`min-w-0 wrap-break-word text-[300px] tracking-[-1.3rem] leading-40 -mt-12.5
+            className={`min-w-0 wrap-break-word text-[100px] xl:text-[150px] 
+                tracking-[-0.4rem] xl:tracking-[-0.65rem] leading-13.5 xl:leading-20 
+                xl:mt-[-1.55rem] transition-default
             ${t.nothing ? "font-sanspace" : "font-sansafe"}`}
           >
             {t.word}

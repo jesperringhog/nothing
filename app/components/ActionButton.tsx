@@ -1,33 +1,36 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { ThingContext } from "../contexts/ThingContext";
 import { Thing } from "../models/Thing";
 import { ThingActionType } from "../models/ThingActionType";
+import { DotTriangle } from "./DotTriangle";
 
-type BtnComponentProps = {
+type ActionButtonProps = {
   thing?: Thing;
   thingActionType: ThingActionType;
   children?: React.ReactNode;
 };
 
-export const BtnComponent = ({
+export const ActionButton = ({
   thing,
   thingActionType,
   children,
-}: BtnComponentProps) => {
+}: ActionButtonProps) => {
   const { dispatch } = useContext(ThingContext);
-  let className = "size-37.5 text-4xl bg-foreground hover:bg-background";
+  let className = "text-4xl bg-foreground transition-default cursor-pointer";
 
   switch (thingActionType) {
     case ThingActionType.CREATED:
-      className += " rounded-full cursor-cell";
+      className += " size-[150px] rounded-[100%] hover:rounded-r-none";
       break;
 
     case ThingActionType.ALTERNATED:
-      className += " rounded-tl-[50%] rounded-br-[50%] cursor-help";
+      className +=
+        " size-[75px] xl:size-[150px] rounded-tl-[50%] rounded-br-[50%] hover:rounded-tl-none hover:rounded-br-none hover:rounded-tr-[50%] hover:rounded-bl-[50%]";
       break;
 
     case ThingActionType.ELIMINATED:
-      className += " rounded-full cursor-grabbing";
+      className += " size-[75px] xl:size-[150px] rounded-full hover:bg-background group";
+      children = <DotTriangle />;
   }
 
   return (
@@ -40,7 +43,6 @@ export const BtnComponent = ({
         });
       }}
       className={className}
-      
     >
       {children}
     </button>

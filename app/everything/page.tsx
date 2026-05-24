@@ -1,7 +1,7 @@
 "use client";
 
 import { useReducer } from "react";
-import { AddThing } from "../components/AddThing";
+import { CreateThing } from "../components/CreateThing";
 import { thingReducer } from "../reducers/thingReducer";
 import { ThingContext } from "../contexts/ThingContext";
 import { Things } from "../components/Things";
@@ -11,7 +11,7 @@ export default function EveryThing() {
 
   return (
     <ThingContext.Provider value={{ things, dispatch }}>
-      <AddThing />
+      <CreateThing />
       <Things />
     </ThingContext.Provider>
   );
