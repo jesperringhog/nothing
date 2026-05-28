@@ -1,26 +1,21 @@
 import { useContext } from "react";
-import { ThingContext } from "../contexts/ThingContext";
-import { Thing } from "../models/Thing";
 import { ThingActionType } from "../models/ThingActionType";
 import { DotTriangle } from "./DotTriangle";
 
 type ActionButtonProps = {
-  thing?: Thing;
   thingActionType: ThingActionType;
   children?: React.ReactNode;
 };
 
 export const ActionButton = ({
-  thing,
   thingActionType,
   children,
 }: ActionButtonProps) => {
-  const { dispatch } = useContext(ThingContext);
   let className = "text-4xl bg-foreground transition-default cursor-pointer";
 
   switch (thingActionType) {
     case ThingActionType.CREATED:
-      className += " size-[150px] rounded-[100%] hover:rounded-r-none";
+      className += " min-w-[150px] min-h-[150px] size-[150px] rounded-[100%] hover:rounded-r-none";
       break;
 
     case ThingActionType.ALTERNATED:
@@ -35,13 +30,6 @@ export const ActionButton = ({
 
   return (
     <button
-      onClick={() => {
-        if (!thing) return;
-        dispatch({
-          type: thingActionType!,
-          payload: thing.id.toString(),
-        });
-      }}
       className={className}
     >
       {children}
