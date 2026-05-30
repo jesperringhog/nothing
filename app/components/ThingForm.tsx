@@ -3,18 +3,22 @@ import { ActionButton } from "./ActionButton";
 import { createThing } from "../actions/createThing";
 
 export const ThingForm = async () => (
-  <form action={createThing} className="flex xl:flex-col" autoComplete="off">
+  <form action={createThing} className="flex" autoComplete="off">
     <label htmlFor="thing"></label>
-    <input
-      className="w-37.5 focus:w-full h-37.5 mr-2 mb-2 font-sansafe uppercase 
-      text-xl md:text-4xl text-center text-background bg-foreground
-      rounded-none hover:rounded-r-[100%] focus:hover:rounded-none appearence-none 
-      outline-none shadow-none border-none transition-default"
-      id="thing"
-      type="text"
-      name="thingText"
-      required
-    />
+    <div className="w-37.5 focus-within:w-full h-37.5 mr-2 mb-2 flex justify-center 
+    items-center bg-foreground group relative transition-default">
+      <input
+        className="w-full h-full font-sansafe uppercase text-xl md:text-4xl 
+        text-center text-background bg-foreground appearence-none 
+        outline-none shadow-none border-none transition-default"
+        id="thing"
+        type="text"
+        name="thingText"
+        required
+      />
+      <div className="w-2 h-full group-hover:bg-background group-focus-within:opacity-0
+      absolute pointer-events-none transition-default"></div>
+    </div>
     <ActionButton thingActionType={ThingActionType.CREATED} />
   </form>
 );

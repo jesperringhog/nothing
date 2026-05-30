@@ -22,9 +22,9 @@ export const ActionButton = ({
         " min-w-[150px] min-h-[150px] size-[150px] rounded-[100%] hover:rounded-r-none";
       break;
 
-    case ThingActionType.ALTERNATED:
+    case ThingActionType.VARIED:
       className +=
-        " size-[75px] xl:size-[150px] rounded-tl-[50%] rounded-br-[50%] hover:rounded-tl-none hover:rounded-br-none hover:rounded-tr-[50%] hover:rounded-bl-[50%]";
+        " size-[75px] xl:size-[150px] rounded-tr-[50%] rounded-bl-[50%] hover:rounded-tr-none hover:rounded-bl-none hover:rounded-tl-[50%] hover:rounded-br-[50%]";
       break;
 
     case ThingActionType.ELIMINATED:
