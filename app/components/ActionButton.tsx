@@ -1,21 +1,25 @@
-import { useContext } from "react";
+"use client";
+
 import { ThingActionType } from "../models/ThingActionType";
 import { DotTriangle } from "./DotTriangle";
 
 type ActionButtonProps = {
   thingActionType: ThingActionType;
+  thingAction?: () => Promise<void>;
   children?: React.ReactNode;
 };
 
 export const ActionButton = ({
   thingActionType,
+  thingAction,
   children,
 }: ActionButtonProps) => {
   let className = "text-4xl bg-foreground transition-default cursor-pointer";
 
   switch (thingActionType) {
     case ThingActionType.CREATED:
-      className += " min-w-[150px] min-h-[150px] size-[150px] rounded-[100%] hover:rounded-r-none";
+      className +=
+        " min-w-[150px] min-h-[150px] size-[150px] rounded-[100%] hover:rounded-r-none";
       break;
 
     case ThingActionType.ALTERNATED:
@@ -24,14 +28,13 @@ export const ActionButton = ({
       break;
 
     case ThingActionType.ELIMINATED:
-      className += " size-[75px] xl:size-[150px] rounded-full hover:bg-background group";
+      className +=
+        " size-[75px] xl:size-[150px] rounded-full hover:bg-background group";
       children = <DotTriangle />;
   }
 
   return (
-    <button
-      className={className}
-    >
+    <button className={className} onClick={thingAction}>
       {children}
     </button>
   );

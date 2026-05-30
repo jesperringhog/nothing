@@ -1,6 +1,6 @@
 import { ThingActionType } from "../models/ThingActionType";
 import { ActionButton } from "./ActionButton";
-import { createThing } from "../actions/thingActions";
+import { createThing } from "../actions/createThing";
 
 export const ThingForm = async () => (
   <form action={createThing} className="flex xl:flex-col" autoComplete="off">
