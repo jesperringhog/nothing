@@ -4,6 +4,7 @@ import { ThingForm } from "../components/ThingForm";
 import { Things } from "../components/Things";
 
 export default async function Nothing() {
+  //flytta till things
   await connectDB();
   const things: ThingType[] = await Thing.find().select("-_id").lean();
 

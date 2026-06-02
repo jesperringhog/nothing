@@ -18,3 +18,21 @@ export const createThing = async (formData: FormData) => {
 
   revalidatePath("/nothing");
 };
+
+export const updateThing = async (id: string, currentValue: boolean) => {
+  await connectDB();
+
+  await Thing.findOneAndUpdate({ id }, { nothing: !currentValue });
+
+  revalidatePath("/nothing");
+};
+
+export const deleteThing = async (id: string) => {
+  await connectDB();
+
+  await Thing.findOneAndDelete({ id });
+
+  revalidatePath("/nothing");
+};
+
+

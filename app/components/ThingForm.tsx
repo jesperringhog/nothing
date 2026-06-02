@@ -1,11 +1,11 @@
 import { ThingActionType } from "../models/ThingActionType";
 import { ActionButton } from "./ActionButton";
-import { createThing } from "../actions/createThing";
+import { createThing } from "../actions/thingActions";
 
 export const ThingForm = async () => (
   <form action={createThing} className="flex" autoComplete="off">
     <label htmlFor="thing"></label>
-    <div className="w-37.5 focus-within:w-full h-37.5 mr-2 mb-2 flex justify-center 
+    <div className="w-18.75 lg:w-37.5 focus-within:w-full h-18.75 lg:h-37.5 mr-2 mb-2 flex justify-center 
     items-center bg-foreground group relative transition-default">
       <input
         className="w-full h-full font-sansafe uppercase text-xl md:text-4xl 

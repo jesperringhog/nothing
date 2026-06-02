@@ -19,7 +19,7 @@ export const ActionButton = ({
   switch (thingActionType) {
     case ThingActionType.CREATED:
       className +=
-        " min-w-[150px] min-h-[150px] size-[150px] rounded-[100%] hover:rounded-r-none";
+        " min-w-[75px] lg:min-w-[150px] min-h-[75px] lg:min-h-[150px] size-[75px] lg:size-[150px] rounded-[100%] hover:rounded-r-none";
       break;
 
     case ThingActionType.VARIED:
