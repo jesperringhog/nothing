@@ -16,7 +16,7 @@ export const ThingForm = async () => (
         name="thingText"
         required
       />
-      <div className="w-2 h-full group-hover:bg-background group-focus-within:opacity-0
+      <div className="w-1 lg:w-2 h-full group-hover:bg-background group-focus-within:opacity-0
       absolute pointer-events-none transition-default"></div>
     </div>
     <ActionButton thingActionType={ThingActionType.CREATED} />

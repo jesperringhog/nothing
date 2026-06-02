@@ -14,7 +14,7 @@ export const ActionButton = ({
   thingAction,
   children,
 }: ActionButtonProps) => {
-  let className = "text-4xl bg-foreground transition-default cursor-pointer";
+  let className = "bg-foreground transition-default";
 
   switch (thingActionType) {
     case ThingActionType.CREATED:
@@ -24,12 +24,12 @@ export const ActionButton = ({
 
     case ThingActionType.VARIED:
       className +=
-        " size-[75px] xl:size-[150px] rounded-tr-[50%] rounded-bl-[50%] hover:rounded-tr-none hover:rounded-bl-none hover:rounded-tl-[50%] hover:rounded-br-[50%]";
+        " size-[36.5px] md:size-[73.5px] xl:size-[150px] rounded-tr-[50%] rounded-bl-[50%] hover:rounded-tr-none hover:rounded-bl-none hover:rounded-tl-[50%] hover:rounded-br-[50%]";
       break;
 
     case ThingActionType.ELIMINATED:
       className +=
-        " size-[75px] xl:size-[150px] rounded-full hover:bg-background group";
+        " size-[36.5px] md:size-[73.5px] xl:size-[150px] rounded-full hover:bg-background group";
       children = <DotTriangle />;
   }
 
