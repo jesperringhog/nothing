@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from "uuid";
 export const createThing = async (formData: FormData) => {
   await connectDB();
 
-  const thingText = formData.get("thingText") as string;
+  const thingText = formData.get("thingtext") as string;
 
   await Thing.create({
     id: uuidv4(),

@@ -5,13 +5,12 @@ import { ThingActionType } from "../models/ThingActionType";
 import { ThingType } from "../models/Thing";
 import { deleteThing, updateThing } from "../actions/thingActions";
 
-type ThingsProps = {
+type ThingsPresentationProps = {
   things: ThingType[];
 };
 
-
-export const Things = ({ things }: ThingsProps) => (
-  <ul>
+export const ThingsPresentation = ({ things }: ThingsPresentationProps) => (
+  <ul className="mt-23 lg:mt-42">
     {things.map((t) => (
       <li key={t.id} className="flex flex-col lg:flex-row gap-2 mb-2">
         <div className="flex gap-0.5 md:gap-2 lg:gap-1 xl:gap-2">

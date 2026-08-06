@@ -14,7 +14,7 @@ export const ActionButton = ({
   thingAction,
   children,
 }: ActionButtonProps) => {
-  let className = "bg-foreground transition-default";
+  let className = "bg-foreground transition-default cursor-pointer";
 
   switch (thingActionType) {
     case ThingActionType.CREATED:

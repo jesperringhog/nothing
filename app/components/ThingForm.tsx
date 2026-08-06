@@ -3,9 +3,9 @@ import { ActionButton } from "./ActionButton";
 import { createThing } from "../actions/thingActions";
 
 export const ThingForm = async () => (
-  <form action={createThing} className="flex" autoComplete="off">
+  <form action={createThing} className="w-full pt-2 flex bg-background fixed" autoComplete="off">
     <label htmlFor="thing"></label>
-    <div className="w-18.75 lg:w-37.5 focus-within:w-full h-18.75 lg:h-37.5 mr-2 mb-2 flex justify-center 
+    <div className="w-18.75 lg:w-37.5 focus-within:w-[50%] h-18.75 lg:h-37.5 mr-2 mb-2 flex justify-center 
     items-center bg-foreground group relative transition-default">
       <input
         className="w-full h-full font-sansafe uppercase text-xl md:text-4xl 
@@ -13,7 +13,7 @@ export const ThingForm = async () => (
         outline-none shadow-none border-none transition-default"
         id="thing"
         type="text"
-        name="thingText"
+        name="thingtext"
         required
       />
       <div className="w-1 lg:w-2 h-full group-hover:bg-background group-focus-within:opacity-0
